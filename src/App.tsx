@@ -45,22 +45,26 @@ function App() {
           >
             {drink.charAt(0).toUpperCase() + drink.slice(1)}{" "}
             {prices[drink as availableDrinks]} yen
-            {orderCount[drink as availableDrinks] > 0 && (
-              <span
+            {
+              <div
                 id={`${drink}-count`}
                 data-testid={`${drink}-count`}
                 className="badge"
               >
                 {orderCount[drink as availableDrinks]}
-              </span>
-            )}
+              </div>
+            }
           </button>
         ))}
       </div>
       <div className="totals">
         <p className="title">Your bill</p>
-        <span id="count">Items Ordered: {totalCount}</span>
-        <span id="price">Total Price: {totalPrice} yen</span>
+        <div id="count-wrapper">
+          Items Ordered: <span id="count">{totalCount}</span>
+        </div>
+        <div id="price-wrapper">
+          Total Price: <span id="price">{totalPrice}</span> yen
+        </div>
       </div>
     </div>
   );
